@@ -14,4 +14,8 @@
     <string name="donateButton">Donate</string>
     <string name="paypal">Paypal</string>
     <string name="direct">direct</string>
+    <string name="donateTitle">Welcome Homer</string>
+    <string name="donateSubtitle">Please Give Generously</string>
+    <string name="PayPal">PayPal</string>
+    <string name="Direct">Direct</string>
 </resources>

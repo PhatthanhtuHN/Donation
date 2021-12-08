@@ -28,6 +28,12 @@ public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration appBarConfiguration;
     private ActivityMainBinding binding;
+    private Button donateButton;
+    private RadioGroup paymentMethod;
+    private ProgressBar progressBar;
+    private NumberPicker amountPicker;
+
+    private int totalDonated = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +60,12 @@ public class MainActivity extends AppCompatActivity {
         {
             Log.v("Donate", "Really got the donate button");
         }
+        paymentMethod = (RadioGroup) findViewById(R.id.paymentMethod);
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        amountPicker = (NumberPicker) findViewById(R.id.amountPicker);
+        amountPicker.setMinValue(0);
+        amountPicker.setMaxValue(1000);
+        progressBar.setMax(10000);
     }
 
     @Override
@@ -85,14 +97,17 @@ public class MainActivity extends AppCompatActivity {
                 || super.onSupportNavigateUp();
     }
 
-    private Button donateButton;
 
     public void donateButtonPressed (View view)
     {
-        Log.v("Donate", "Donate Pressed!");
+        int amount = amountPicker.getValue();
+        int radioId = paymentMethod.getCheckedRadioButtonId();
+        String method = radioId == R.id.PayPal ? "PayPal" : "Direct";
+        totalDonated = totalDonated + amount;
+        progressBar.setProgress(totalDonated);
+        Log.v("Donate", "Donate Pressed! with amount " + amount + ", method: " +
+                method);
+        Log.v("Donate", "Current total " + totalDonated);
     }
 
-    private RadioGroup paymentMethod;
-    private ProgressBar progressBar;
-    private NumberPicker amountPicker;
 }
