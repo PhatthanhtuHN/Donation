@@ -1,5 +1,6 @@
 package ie.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -83,10 +84,7 @@ public class MainActivity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         switch (item.getItemId())
         {
-            case R.id.menuReport:
-                Toast toast = Toast.makeText(this, "Report Selected",
-                        Toast.LENGTH_SHORT);
-                toast.show();
+            case R.id.menuReport : startActivity (new Intent(this, Report.class));
                 break;
         }
         return super.onOptionsItemSelected(item);

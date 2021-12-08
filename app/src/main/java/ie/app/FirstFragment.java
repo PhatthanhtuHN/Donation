@@ -1,4 +1,4 @@
-package ie.app;
+package ie.activities;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
-import ie.app.databinding.FragmentFirstBinding;
+import ie.activities.databinding.FragmentFirstBinding;
 
 public class FirstFragment extends Fragment {
 
