@@ -31,12 +31,14 @@ public class MainActivity extends Base {
     private NumberPicker amountPicker;
     private EditText amountText;
     private TextView amountTotal;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,17 +48,20 @@ public class MainActivity extends Base {
                         .setAction("Action", null).show();
             }
         });
+
         donateButton = (Button) findViewById(R.id.donateButton);
         paymentMethod = (RadioGroup) findViewById(R.id.paymentMethod);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         amountPicker = (NumberPicker) findViewById(R.id.amountPicker);
         amountText = (EditText) findViewById(R.id.paymentAmount);
         amountTotal = (TextView) findViewById(R.id.totalSoFar);
+
         amountPicker.setMinValue(0);
         amountPicker.setMaxValue(1000);
         progressBar.setMax(10000);
         amountTotal.setText("$0");
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -73,6 +78,7 @@ public class MainActivity extends Base {
         }
         return super.onOptionsItemSelected(item);
     }
+
     public void donateButtonPressed (View view)
     {
         String method = paymentMethod.getCheckedRadioButtonId() == R.id.PayPal ?
