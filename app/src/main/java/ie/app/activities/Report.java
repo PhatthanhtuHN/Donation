@@ -1,4 +1,4 @@
-package ie.activities;
+package ie.app.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;

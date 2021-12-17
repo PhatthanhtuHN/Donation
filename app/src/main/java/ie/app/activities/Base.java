@@ -1,4 +1,4 @@
-package ie.activities;
+package ie.app.activities;
 
 import android.content.Intent;
 import android.view.Menu;
@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.ArrayList;
 import java.util.List;
 
+import ie.activities.R;
 import ie.app.models.Donation;
 
 public class Base extends AppCompatActivity {
