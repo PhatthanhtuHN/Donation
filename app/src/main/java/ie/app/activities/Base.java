@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -77,5 +79,13 @@ public class Base extends AppCompatActivity {
     {
         startActivity (new Intent(this, MainActivity.class));
     }
-    public void reset(MenuItem item) {}
+    public void reset(MenuItem item) {
+//        app.dbManager.reset();
+//        app.totalDonated = 0;
+//        report(item);
+//        ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
+//        progressBar.setProgress(app.totalDonated);
+//        TextView amountTotal = (TextView) findViewById(R.id.totalSoFar);
+//        amountTotal.setText("$" + app.totalDonated);
+    }
 }
