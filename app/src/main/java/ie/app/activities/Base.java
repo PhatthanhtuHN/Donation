@@ -27,6 +27,12 @@ public class Base extends AppCompatActivity {
     }
 
     @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        app.dbManager.close();
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
         getMenuInflater().inflate(R.menu.menu_main, menu);
@@ -40,7 +46,7 @@ public class Base extends AppCompatActivity {
         MenuItem reset = menu.findItem(R.id.menuReset);
         if(app.dbManager.getAll().isEmpty())
         {
-            report.setEnabled(false);
+            report.setEnabled(true);
             reset.setEnabled(false);
         }
         else {
@@ -58,14 +64,11 @@ public class Base extends AppCompatActivity {
         else {
             report.setVisible(false);
             donate.setVisible(true);
-            reset.setVisible(false);
+            reset.setVisible(true);
         }
         return true;
     }
-    public void settings(MenuItem item)
-    {
-        Toast.makeText(this, "Settings Selected", Toast.LENGTH_SHORT).show();
-    }
+
     public void report(MenuItem item)
     {
         startActivity (new Intent(this, Report.class));

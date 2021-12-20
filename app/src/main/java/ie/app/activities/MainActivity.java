@@ -11,6 +11,7 @@ import android.view.View;
 import androidx.appcompat.widget.Toolbar;
 
 import ie.activities.R;
+import ie.app.main.DonationApp;
 import ie.app.models.Donation;
 
 import android.view.Menu;
@@ -31,6 +32,7 @@ public class MainActivity extends Base {
     private NumberPicker amountPicker;
     private EditText amountText;
     private TextView amountTotal;
+//    public int totalDonated = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -102,11 +104,11 @@ public class MainActivity extends Base {
     @Override
     public void reset(MenuItem item)
     {
+        app.dbManager.reset();
         app.totalDonated = 0;
         progressBar.setProgress(app.totalDonated);
-        String totalDonatedStr = "$" + app.totalDonated;
-        amountTotal.setText(totalDonatedStr);
-
+        amountTotal.setText("$" + app.totalDonated);
+        report(item);
     }
 
 }

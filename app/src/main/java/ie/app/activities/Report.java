@@ -33,7 +33,7 @@ public class Report extends Base {
     {
         switch (item.getItemId())
         {
-            case R.id.menuDonate : startActivity (new Intent(this, MainActivity.class));
+            case R.id.menuDonate : donate(item);
                 break;
         }
         return super.onOptionsItemSelected(item);
