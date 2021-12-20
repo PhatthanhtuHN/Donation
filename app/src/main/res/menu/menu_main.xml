@@ -3,9 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="ie.activities.ie.app.activities.activities.MainActivity">
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/menuReset"
         android:orderInCategory="100"
-        android:title="@string/action_settings"
+        android:title="@string/menuReset"
+        android:onClick="reset"
         app:showAsAction="never" />
     <item
         android:id="@+id/menuReport"
