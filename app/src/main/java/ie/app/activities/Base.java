@@ -18,21 +18,31 @@ import ie.app.main.DonationApp;
 import ie.app.models.Donation;
 
 public class Base extends AppCompatActivity {
+    public final int target = 10000;
+    public int totalDonated = 0;
     public DonationApp app;
+//    public static List<Donation> donations = new ArrayList<Donation>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         app = (DonationApp) getApplication();
-        app.dbManager.open();
-        app.dbManager.setTotalDonated(this);
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        app.dbManager.close();
-    }
+//    public boolean newDonation(Donation donation)
+//    {
+//        boolean targetAchieved = totalDonated > target;
+//        if (!targetAchieved)
+//        {
+//            donations.add(donation);
+//            totalDonated += donation.amount;
+//        } else {
+//            Toast toast = Toast.makeText(this, "Target Exceeded!", Toast.LENGTH_SHORT);
+//            toast.show();
+//        }
+//        return targetAchieved;
+//    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
@@ -46,28 +56,29 @@ public class Base extends AppCompatActivity {
         MenuItem report = menu.findItem(R.id.menuReport);
         MenuItem donate = menu.findItem(R.id.menuDonate);
         MenuItem reset = menu.findItem(R.id.menuReset);
-        if(app.dbManager.getAll().isEmpty())
-        {
-            report.setEnabled(true);
+
+        if(app.donations.isEmpty()){
+            report.setEnabled(false);
             reset.setEnabled(false);
-        }
-        else {
+        } else{
             report.setEnabled(true);
             reset.setEnabled(true);
         }
+
         if(this instanceof MainActivity){
             donate.setVisible(false);
-            if(!app.dbManager.getAll().isEmpty())
+            if(!app.donations.isEmpty())
             {
                 report.setVisible(true);
                 reset.setEnabled(true);
             }
-        }
-        else {
+        } else{
             report.setVisible(false);
             donate.setVisible(true);
-            reset.setVisible(true);
+            reset.setVisible(false);
         }
+
+
         return true;
     }
 
