@@ -23,4 +23,5 @@
     <string name="total">Total so far</string>
     <string name="totalSoFar">$total</string>
     <string name="menuReset">Reset</string>
+    <string name="defaultUpvotes">00</string>
 </resources>

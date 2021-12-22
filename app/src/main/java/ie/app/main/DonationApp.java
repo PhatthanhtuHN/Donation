@@ -7,7 +7,6 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-import ie.app.database.DBManager;
 import ie.app.models.Donation;
 
 public class DonationApp extends Application {
